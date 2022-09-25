@@ -10,7 +10,7 @@ Node js
  - create index.js file
 ### edit script
  - "scripts": {
-    "build": "babel index.js -d dist",
-    "start":"npm run build && node dist/index.js",
-    "dev": "nodemon --exec babel-node index.js"
-  },
+ -  "build": "babel index.js -d dist",
+ -  "start":"npm run build && node dist/index.js",
+ -  "dev": "nodemon --exec babel-node index.js"
+ - },
