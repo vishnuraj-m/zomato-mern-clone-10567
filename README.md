@@ -9,8 +9,8 @@ Node js
  - create file inside server (.babelrc) and paste the value from https://www.freecodecamp.org/news/setup-babel-in-nodejs/
  - create index.js file
 ### edit script
-<!--  - "scripts": {
+ - "scripts": {
     "build": "babel index.js -d dist",
     "start":"npm run build && node dist/index.js",
     "dev": "nodemon --exec babel-node index.js"
-  }, -->
+  },
