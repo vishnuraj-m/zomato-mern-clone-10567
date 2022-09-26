@@ -1,4 +1,10 @@
 import express from 'express';
+import dotenv from 'dotenv';
+
+// Database Connection
+import ConnectDB from './database/connection'
+
+dotenv.config();
 
 const zomato = express();
 const PORT = 4000;
@@ -12,5 +18,14 @@ zomato.get('/', (req, res) => {
 });
 
 zomato.listen(PORT,()=>{
-    console.log('Server is running')
-})
+    // ConnectDB()
+    // .then(()=>{
+    //     console.log('Server is running');
+    // })
+    // .catch((error)=>{
+    //     console.log('Server is running Database connection failed...');
+    //     console.log(error);
+    // });
+
+    console.log('Server is running');
+});
