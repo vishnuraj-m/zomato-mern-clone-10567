@@ -14,4 +14,4 @@ Node js
  -  "start":"npm run build && node dist/index.js",
  -  "dev": "nodemon --exec babel-node index.js"
  - },
-
+### creating schema
