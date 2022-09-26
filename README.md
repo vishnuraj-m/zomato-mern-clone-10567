@@ -18,4 +18,8 @@ Node js
  - create connection .js (and connect with index.js)
  - create all schemas (food, image, menu,order, restaurant, review, user)
  - create allModels.js and export all schemas
-
+### create mongodb project
+ - build database
+ - set database access
+ - set network access
+ - connect db to server
