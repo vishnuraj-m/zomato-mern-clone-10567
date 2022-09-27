@@ -1,6 +1,7 @@
-import mongoose from 'mongoose';
 
-const ReviewSchema = new mongoose.Schema(
+import mongoose from "mongoose";
+
+const ReviewSchema = mongoose.Schema(
     {
         food: { type: mongoose.Types.ObjectId, ref: "foods" },
         restaurant: { type: mongoose.Types.ObjectId, ref: "restaurants" },
@@ -13,9 +14,10 @@ const ReviewSchema = new mongoose.Schema(
             type: mongoose.Types.ObjectId,
             ref: "images",
         },
-    }, {
-    timestamps: true
-},
+    },
+    {
+        timestamps: true,
+    }
 );
 
-export const ReviewModel = mongoose.model('reviews', ReviewSchema);
+export const ReviewModel = mongoose.model("reviews", ReviewSchema);
