@@ -11,7 +11,7 @@ const Router = express.Router();
  * Access    private
  * Method    GET
  */
-Router.get("/",passport.authenticate("jwt", { session: false }), async (req, res) => {
+Router.get("/", passport.authenticate("jwt", { session: false }), async (req, res) => {
   try {
     const { email, fullName, phoneNumber, address } = req.user;
 
@@ -29,7 +29,7 @@ Router.get("/",passport.authenticate("jwt", { session: false }), async (req, res
  * Method    GET
  */
 
- Router.get("/:_id", async (req, res) => {
+Router.get("/:_id", async (req, res) => {
   try {
     const { _id } = req.params;
 
@@ -46,5 +46,39 @@ Router.get("/",passport.authenticate("jwt", { session: false }), async (req, res
     return res.status(500).json({ error: error.message });
   }
 });
+
+/**
+ * Route     /:_id
+ * Des       Update user data
+ * Params    _id
+ * Access    Private
+ * Method    PUT
+ */
+Router.put(
+  "/update/:_id",
+  passport.authenticate("jwt", { session: false }),
+  async (req, res) => {
+    try {
+      const { _id } = req.params;
+      const { userData } = req.body;
+
+      userData.password = undefined;
+
+      const updateUserData = await UserModel.findByIdAndUpdate(
+        _id,
+        {
+          $set: userData,
+        },
+        {
+          new: true,
+        }
+      );
+
+      return res.json({ user: updateUserData });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
+  }
+)
 
 export default Router;
